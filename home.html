@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Cure API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Home Price Prediction Application</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="Living_Space(sqft)" placeholder="Living_Space(sqft)" required="required" /><br>
+    	<input type="text" name="No_Of_Bedrooms" placeholder="No_Of_Bedrooms" required="required" /><br>
+        <input type="text" name="No_Of_Bathrooms" placeholder="No_Of_Bathrooms" required="required" /><br>
+        <input type="text" name="Condition(on scale of 5)" placeholder="Condition(on scale of 5)" required="required" /><br>
+        <input type="text" name="Year_Build" placeholder="Year_Build" required="required" /><br>
+		<input type="text" name="Swimming Pool(0 & 1)" placeholder="Swimming Pool(0 & 1)" required="required" /><br>
+		<input type="text" name="Location(0 to 6)" placeholder="Location(0 to 6)" required="required" /><br>
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
